@@ -1,0 +1,104 @@
+{
+    "evaluator": "or",
+    "condition": [
+        {
+            "evaluator": "uri-match",
+            "condition": "/projects/{projectId}/content/{qname}"
+        },
+        {
+            "evaluator": "uri-match",
+            "condition": "/projects/{projectId}/content"
+        }
+    ],
+    "config": {
+        "regions": {
+            "center": {
+                "type": "custom-content-instances",
+                "config": {
+                    "replace": true,
+                    "chrome": false,
+                    "buttons": [],
+                    "columns": [
+                        {
+                            "title": "Content",
+                            "key": "titleDescription"
+                        }
+                    ],
+                    "icon": true,
+                    "checkbox": true,
+                    "loader": "gitana",
+                    "actions": true,
+                    "selectorGroups": {
+                        "multi-documents-action-selector-group": {
+                            "actions": []
+                        },
+                        "sort-selector-group": {
+                            "fields": [
+                                {
+                                    "key": "title",
+                                    "title": "Title",
+                                    "field": "title"
+                                },
+                                {
+                                    "key": "contributor",
+                                    "title": "Contributor",
+                                    "field": "contributor"
+                                },
+                                {
+                                    "key": "keywords",
+                                    "title": "Keywords",
+                                    "field": "keywords"
+                                },
+                                {
+                                    "key": "category",
+                                    "title": "Category",
+                                    "field": "category.title"
+                                },
+                                {
+                                    "key": "creationDate",
+                                    "title": "Creation Date",
+                                    "field": "creationDate"
+                                },
+                                {
+                                    "key": "launchDate",
+                                    "title": "Launch Date",
+                                    "field": "launchDate"
+                                },
+                                {
+                                    "key": "description",
+                                    "title": "Description",
+                                    "field": "description"
+                                },
+                                {
+                                    "key": "createdOn",
+                                    "title": "Created On",
+                                    "field": "_system.created_on.ms"
+                                },
+                                {
+                                    "key": "createdBy",
+                                    "title": "Created By",
+                                    "field": "_system.created_by"
+                                },
+                                {
+                                    "key": "modifiedOn",
+                                    "title": "Modified On",
+                                    "field": "_system.modified_on.ms"
+                                },
+                                {
+                                    "key": "modifiedBy",
+                                    "title": "Modified By",
+                                    "field": "_system.modified_by"
+                                },
+                                {
+                                    "key": "size",
+                                    "title": "Size",
+                                    "field": "_system.attachments.default.length"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
