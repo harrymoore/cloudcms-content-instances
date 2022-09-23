@@ -1,14 +1,12 @@
 {
-    "evaluator": "or",
+    "evaluator": "uri-match",
     "condition": [
-        {
-            "evaluator": "uri-match",
-            "condition": "/projects/{projectId}/content/{qname}"
-        },
-        {
-            "evaluator": "uri-match",
-            "condition": "/projects/{projectId}/content"
-        }
+        "/projects/{projectId}/branches/{branchId}/content/{qname}",
+        "/projects/{projectId}/branches/{branchId}/content",
+        "/projects/{projectId}/tasks/{workflowTaskId}/content/{qname}",
+        "/projects/{projectId}/tasks/{workflowTaskId}/content",
+        "/projects/{projectId}/pullrequests/{pullRequestId}/content/{qname}",
+        "/projects/{projectId}/pullrequests/{pullRequestId}/content"
     ],
     "config": {
         "regions": {
@@ -20,7 +18,7 @@
                     "buttons": [],
                     "columns": [
                         {
-                            "title": "Content",
+                            "title": "Content (Custom)",
                             "key": "titleDescription"
                         }
                     ],

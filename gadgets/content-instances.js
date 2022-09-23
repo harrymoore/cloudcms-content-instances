@@ -4,16 +4,16 @@ define(function (require, exports, module) {
     var OneTeam = require("oneteam");
     var TemplateHelperFactory = require("template-helper");
 
-    var ContentInstancesGadget = require("app/gadgets/project/content/content-instances");
+    var ContentInstancesGadgetType = Ratchet.GadgetRegistry.findClass("content-instances");
 
-    return Ratchet.GadgetRegistry.register("custom-content-instances", ContentInstancesGadget.extend({
+    return Ratchet.GadgetRegistry.register("custom-content-instances", ContentInstancesGadgetType.extend({
 
         doGitanaQuery: function (context, model, searchTerm, query, pagination, callback) {
             var self = this;
 
             var selectedContentTypeDescriptor = self.observable("selected-content-type").get();
             if (selectedContentTypeDescriptor 
-                && selectedContentTypeDescriptor.definition.__qname() === "fabric:project") {
+                && selectedContentTypeDescriptor.definition._qname === "fabric:project") {
 
                 if (!query) {
                     query = {};
@@ -77,7 +77,7 @@ define(function (require, exports, module) {
                 if (selectedContentTypeDescriptor 
                     && selectedContentTypeDescriptor.definition 
                     && selectedContentTypeDescriptor.definition.properties.projectType 
-                    && selectedContentTypeDescriptor.definition.__qname() === "fabric:project") {
+                    && selectedContentTypeDescriptor.definition._qname === "fabric:project") {
 
                     // customization. add select list to choose project type filter
                     var selectList = '<select class="btn btn-default" id="selectedProjectType" name="projecttypes"><option selected value="">All</option>';
